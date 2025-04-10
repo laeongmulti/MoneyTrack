@@ -8447,7 +8447,9 @@
       "cate_icon": "fa-solid fa-heart-pulse",
       "is_salary": 0,
       "is_hide": 0,
-      "is_delete": 0
+      "is_delete": 1,
+      "memo": "dsfdsf",
+      "is_fixed": 0
     },
     {
       "id": "563",
@@ -8627,7 +8629,7 @@
       "cate_icon": "fa-solid fa-question",
       "is_salary": 0,
       "is_hide": 0,
-      "is_delete": 0
+      "is_delete": 1
     },
     {
       "id": "575",
@@ -8642,7 +8644,7 @@
       "cate_icon": "fa-solid fa-dog",
       "is_salary": 0,
       "is_hide": 0,
-      "is_delete": 0
+      "is_delete": 1
     },
     {
       "id": "576",
@@ -8777,7 +8779,8 @@
       "cate_icon": "fa-solid fa-bag-shopping",
       "is_salary": 0,
       "is_hide": 0,
-      "is_delete": 0
+      "is_delete": 1,
+      "is_fixed": 0
     },
     {
       "id": "585",
