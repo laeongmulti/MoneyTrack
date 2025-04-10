@@ -1,5 +1,5 @@
 <template>
-  <div class="statistics-page">
+  <div class="statistics-page m-3">
     <StatisticsFilterBox @updateFilter="onFilterUpdate" />
     <StatisticsGraph
       :categoryRatios="categoryRatios"
@@ -10,7 +10,7 @@
     />
 
     <div class="category__ratio">
-      <p>🔹 전체 지출 합계: {{ store.totalAmount }} 원</p>
+      <p>🔹 전체 합계: {{ store.totalAmount }} 원</p>
       <CategoryList :categoryRatios="categoryRatios" />
       <!-- <ul>
         <li v-for="item in store.categoryRatios" :key="item.category">
@@ -29,8 +29,10 @@ import CategoryList from './CategoryList.vue';
 import { useStatisticsStore } from '@/stores/useStatisticsStore';
 import { onMounted } from 'vue';
 import { storeToRefs } from 'pinia';
+import { useCategoryStore } from '@/stores/category';
 
 const store = useStatisticsStore();
+
 const {
   selectedType,
   selectedPeriod,
@@ -44,6 +46,7 @@ const {
 
 onMounted(() => {
   store.fetchData();
+  useCategoryStore().fetchcategoryList();
 });
 
 const onFilterUpdate = ({ type, period, year, month }) => {
