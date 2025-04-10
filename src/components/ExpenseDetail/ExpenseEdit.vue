@@ -101,7 +101,7 @@
 </template>
 <script setup>
 import "@/css/expenseDetail/expenseEdit.css";
-import { reactive, onMounted, ref } from "vue";
+import { reactive, onMounted, ref, inject } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import expenseData from "../../../db/expense.json";
@@ -112,6 +112,7 @@ import ExpenseFilterContainer from "@/components/Expense/ExpenseFilterContainer.
 
 const expenseStore = useExpenseStore();
 const route = useRoute();
+const alert = inject("useAlert");
 
 const { gotoExpense, gotoExpenseDetail } = useRouterUtil();
 
@@ -183,6 +184,7 @@ const updateExpense = async () => {
 
     console.log("수정 완료");
     gotoExpenseDetail(id);
+    alert.success("내역이 수정되었습니다.");
   } catch (err) {
     console.log("저장 실패");
   }

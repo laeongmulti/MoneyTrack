@@ -46,7 +46,7 @@
 
 <script setup>
 import "@/css/expenseDetail/expenseDetail.css";
-import { reactive, onMounted, ref, watch, computed } from "vue";
+import { reactive, onMounted, ref, watch, computed, inject } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import useRouterUtil from "@/utils/useRouterUtil";
@@ -62,6 +62,7 @@ const states = reactive({ expense: {} });
 const infoFields = ref({});
 const id = computed(() => route.params.id);
 const selectedDate = ref(new Date());
+const alert = inject("useAlert");
 
 watch(
   () => route.params.id,
@@ -106,6 +107,7 @@ const handleDelete = async () => {
   try {
     await expenseStore.deleteExpense(id.value);
     gotoExpense();
+    alert.success("내역이 삭제되었습니다.");
   } catch (e) {
     console.log("삭제 실패");
   }
